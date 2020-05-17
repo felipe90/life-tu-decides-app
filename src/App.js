@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.scss";
 import screenTypes from "./const/screen-types";
+import StartPage from "./pages/StartPage/StartPage";
+import Radium from "radium";
 
 class App extends Component {
   state = {
@@ -16,17 +18,16 @@ class App extends Component {
 
   startApp = () => {
     // this.setState({ title: "new title" });
-    console.log("route to " + this.state.screens[0].type + " path screen");
+    console.log(`route to ${this.state.screens[0].type} path screen`);
   };
 
   render() {
     return (
       <div className="App">
-        <h1>{this.state.screens[0].title}</h1>
-        <button onClick={this.startApp}>Tu decides</button>
+        <StartPage title={this.state.screens[0].type}></StartPage>
       </div>
     );
   }
 }
 
-export default App;
+export default Radium(App);
