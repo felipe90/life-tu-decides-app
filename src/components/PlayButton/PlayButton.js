@@ -1,38 +1,42 @@
-import React from "react";
-import Radium from "radium";
-import Button from "react-bootstrap/Button";
+import React, { Component } from "react";
+import "./PlayButton.scss";
 import { Link } from "react-router-dom";
 
-const playButton = (props) => {
-  const styles = {
-    width: "250px",
-    height: "90px",
-    borderRadius: "100px",
-    fontFamily: "LeagueGothic-italic",
-    fontSize: "2.5rem",
-    color: "#FFFFFF",
-    background:
-      "linear-gradient(0deg, rgba(0,28,88,0) 0%, rgba(205,48,209,1) 70%)",
-    // ":hover": {
-    //   color: "#CD30D1",
-    // },
+class PlayButton extends Component {
+  state = {
+    hover: false,
   };
 
-  const imgStyles = {
-    width: "35px",
-    position: "relative",
-    right: "-25px",
+  onMouseEnterHandler = () => {
+    this.setState({
+      hover: true,
+    });
+  };
+  onMouseLeaveHandler = () => {
+    this.setState({
+      hover: false,
+    });
   };
 
-  return (
-    <Link to="/path-select">
-      <Button style={styles}>
-        Tu decides
-        {""}
-        <img style={imgStyles} src="/icons/play_active.svg" alt="share icon" />
-      </Button>
-    </Link>
-  );
-};
+  render() {
+    return (
+      <Link to="/path-select">
+        <button
+          className="PlayButton"
+          onMouseEnter={this.onMouseEnterHandler}
+          onMouseLeave={this.onMouseLeaveHandler}>
+          <span className="button-label">Dale Play</span>
+          <div className="button-icon sh-2">
+            {this.state.hover ? (
+              <img src="/icons/play_active.svg" alt="play icon" />
+            ) : (
+              <img src="/icons/play.svg" alt="play icon" />
+            )}
+          </div>
+        </button>
+      </Link>
+    );
+  }
+}
 
-export default Radium(playButton);
+export default PlayButton;

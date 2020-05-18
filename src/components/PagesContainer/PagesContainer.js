@@ -25,7 +25,7 @@ const pagesContainer = (props) => {
     <Router>
       <Switch>
         <Route exact path="/">
-          <StartPage title={props.currentPage.title}></StartPage>
+          <StartPage></StartPage>
         </Route>
         <Route path="/path-select">
           <PathSelectPage></PathSelectPage>

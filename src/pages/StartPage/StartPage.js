@@ -23,6 +23,7 @@ const startPage = (props) => {
         <div className="col-md-8"></div>
         <div className="col-md-4">
           <PlayButton click={startApp}></PlayButton>
+          {/* <img src="/img/tu-decides.svg" alt="share icon" /> */}
         </div>
       </div>
     </div>

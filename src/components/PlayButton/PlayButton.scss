@@ -1,0 +1,46 @@
+
+@import "../../index.scss";
+
+.PlayButton {
+    position: absolute;
+    width: 560px;
+    height: 180px;
+    border-radius: 100px;
+    font-family: LeagueGothic-italic;
+    font-size: 8rem;
+    color: #FFFFFF;
+    text-align: left;
+    background: linear-gradient(0deg, rgba(0,28,88,0) 0%, rgba(205,48,209,1) 70%);    
+    border: none;
+
+    &:hover .button-icon{
+        background-color: $electricPink;
+    }
+
+    .button-label {
+        display: inline-block;
+        margin-left: 2rem;
+    }
+
+    .button-icon {
+        position: relative;
+        display: inline-block;
+        border-radius: 100px;
+        width: 150px;
+        height: 150px;
+        background-color: $darkBlue;
+        top: 8%;
+        right: -6%;
+
+        img {
+            position: relative;
+            right: -35%;
+            margin: 0 auto;
+            top: -18%;
+            width: 60px;
+        }
+    }
+
+
+
+}
