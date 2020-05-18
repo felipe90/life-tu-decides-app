@@ -1,23 +1,32 @@
-import React, { Component } from "react";
+import React from "react";
 import "./StartPage.scss";
 import PlayButton from "../../components/PlayButton/PlayButton";
 import ShareButton from "../../components/ShareButton/ShareButton";
 import Radium from "radium";
 
-class StartPage extends Component {
-  startApp = () => {
+const startPage = (props) => {
+  const startApp = () => {
     console.log(`routing`);
   };
 
-  render() {
-    return (
-      <div className="StartPage">
-        <h1 className="title">{this.props.title}</h1>
-        <PlayButton click={this.startApp}></PlayButton>
-        <ShareButton click={this.startApp}></ShareButton>
+  return (
+    <div className="StartPage">
+      <div className="row title-container">
+        <div className="col-md-10 text-center">
+          <h1 className="title">{props.title}</h1>
+        </div>
+        <div className="col-md-2 text-center pt-5">
+          <ShareButton click={startApp}></ShareButton>
+        </div>
       </div>
-    );
-  }
-}
+      <div className="row">
+        <div className="col-md-8"></div>
+        <div className="col-md-4">
+          <PlayButton click={startApp}></PlayButton>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Radium(StartPage);
+export default Radium(startPage);

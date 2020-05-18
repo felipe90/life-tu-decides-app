@@ -1,10 +1,11 @@
 import React from "react";
 import Radium from "radium";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 const playButton = (props) => {
   const styles = {
-    width: "180px",
+    width: "250px",
     height: "90px",
     borderRadius: "100px",
     fontFamily: "LeagueGothic-italic",
@@ -17,10 +18,20 @@ const playButton = (props) => {
     // },
   };
 
+  const imgStyles = {
+    width: "35px",
+    position: "relative",
+    right: "-25px",
+  };
+
   return (
-    <Button style={styles} onClick={props.click()}>
-      Tu decides
-    </Button>
+    <Link to="/path-select">
+      <Button style={styles}>
+        Tu decides
+        {""}
+        <img style={imgStyles} src="/icons/play_active.svg" alt="share icon" />
+      </Button>
+    </Link>
   );
 };
 
