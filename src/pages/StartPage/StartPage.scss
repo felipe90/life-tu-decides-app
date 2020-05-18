@@ -1,5 +1,3 @@
-import 
-
 .StartPage {
     width: 100%;
     height: 100vh;
@@ -7,11 +5,10 @@ import
     background-repeat: no-repeat, repeat;
     background-position: center;
     background-size: cover;
-
     
+    .title {
+        color: white;
+        font-family: 'LeagueGothic-italic';
+    }
 }
 
-.title {
-    color: white;
-    font-family: 'LeagueGothic-italic';
-}
