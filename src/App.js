@@ -6,19 +6,15 @@ import Radium from "radium";
 
 class App extends Component {
   state = {
+    currentScreen: {},
     screens: [
       {
         id: "start-page",
         type: screenTypes.ceroScreen,
-        title: "Hello LIFE app",
+        title: "LIFE",
         routes: [],
       },
     ],
-  };
-
-  startApp = () => {
-    // this.setState({ title: "new title" });
-    console.log(`route to ${this.state.screens[0].type} path screen`);
   };
 
   render() {

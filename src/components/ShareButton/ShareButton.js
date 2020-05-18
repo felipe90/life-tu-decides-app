@@ -1,8 +1,7 @@
 import React from "react";
 import Radium from "radium";
-import Button from "react-bootstrap/Button";
 
-const playButton = (props) => {
+const shareButton = (props) => {
   const styles = {
     width: "180px",
     height: "90px",
@@ -12,16 +11,14 @@ const playButton = (props) => {
     color: "#FFFFFF",
     background:
       "linear-gradient(0deg, rgba(0,28,88,0) 0%, rgba(205,48,209,1) 70%)",
-    // ":hover": {
-    //   color: "#CD30D1",
-    // },
   };
 
   return (
-    <Button style={styles} onClick={props.click()}>
-      Tu decides
-    </Button>
+    <div>
+      <img src="/icons/share.svg" alt="share icon" />
+    </div>
+    // <button style={styles} onClick={props.click()}></button>
   );
 };
 
-export default Radium(playButton);
+export default Radium(shareButton);
