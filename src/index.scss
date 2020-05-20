@@ -4,6 +4,16 @@ $electricPurple: #841ABC;
 $darkBlue: #001C58;
 $deepBlue: #003399;
 $electricBlue: #33FFFF;
+$white: #FFFF;
+//TODO: move it to variables.scss
+:export {
+  electricPink: $electricPink;
+  electricPurple: $electricPurple;
+  darkBlue: $darkBlue;
+  deepBlue: $deepBlue;
+  electricBlue: $electricBlue;
+  white: $white;
+}
 
 // Fonts
 @font-face {

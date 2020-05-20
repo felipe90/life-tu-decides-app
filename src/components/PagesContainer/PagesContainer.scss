@@ -1,0 +1,16 @@
+.PagesContainer {
+    width: 100%;
+    height: 100vh;
+    background-image: url("/img/start_background.png");
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+    background-size: cover;
+
+    .page-wrapper {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
