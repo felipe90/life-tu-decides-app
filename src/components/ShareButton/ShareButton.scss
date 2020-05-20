@@ -1,8 +1,8 @@
 @import "../../index.scss";
 
 .ShareButton {
-  width: 75px;
-  height: 75px;
+  width: 100px;
+  height: 100px;
   border-radius: 100px;
   text-align: center;
   cursor: pointer;
@@ -17,6 +17,6 @@
 
   img {
     width: 60%;
-    margin: 15px auto;
+    margin: -20px auto;
   }
 }

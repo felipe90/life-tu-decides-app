@@ -7,7 +7,7 @@
   background-repeat: no-repeat, repeat;
   background-position: center;
   background-size: cover;
-  
+
   .page-container {
     justify-content: space-around;
     display: flex;
@@ -20,11 +20,14 @@
     display: flex;
     align-self: center;
     flex-flow: column;
+    padding: 15%;
+    flex-grow: 2;
+
     .title {
       width: 600px;
       margin-left: 70px;
       margin-bottom: 40px;
-    }    
+    }
     .title-bottom {
       display: flex;
       flex-flow: row;
