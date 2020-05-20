@@ -1,19 +1,45 @@
 .StartPage {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  height: 100vh;
+  background-image: url("/img/start_background.png");
+  background-repeat: no-repeat, repeat;
+  background-position: center;
+  background-size: cover;
+  
+  .page-container {
+    justify-content: space-around;
+    display: flex;
+    flex-flow: row;
     width: 100%;
     height: 100vh;
-    background-image: url("/img/start_background.png");
-    background-repeat: no-repeat, repeat;
-    background-position: center;
-    background-size: cover;
-    
+  }
+
+  .title-container {
+    display: flex;
+    align-self: center;
+    flex-flow: column;
     .title {
-        color: white;
-        font-size: 40rem;
-        font-family: 'LeagueGothic-italic';
+      width: 600px;
+      margin-left: 70px;
+      margin-bottom: 40px;
+    }    
+    .title-bottom {
+      display: flex;
+      flex-flow: row;
+      .title-bar {
+        width: 425px;
+      }
     }
+  }
 
-    .title-container {
-        height: 70vh;
-    }
+  .share-btn {
+    align-self: flex-start;
+    padding: 50px;
+  }
+
+  .play-btn {
+    padding: 50px;
+  }
 }
-

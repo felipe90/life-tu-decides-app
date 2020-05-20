@@ -6,20 +6,8 @@ import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 
 const shareButton = (props) => {
-  const styles = {
-    width: "90px",
-    height: "90px",
-    borderRadius: "100px",
-    border: "",
-    textAlign: "center",
-    cursor: "pointer",
-    background:
-      "linear-gradient(0deg, rgba(0,28,88,0) 0%, rgba(205,48,209,1) 70%)",
-  };
-
   const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     <Button
-      style={styles}
       className="ShareButton"
       onClick={(e) => {
         e.preventDefault();

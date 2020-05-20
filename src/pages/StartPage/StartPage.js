@@ -11,19 +11,23 @@ const startPage = (props) => {
 
   return (
     <div className="StartPage">
-      <div className="row title-container">
-        <div className="col-md-10 text-center">
-          <h1 className="title">{props.title}</h1>
+      <div className="page-container">
+        <div className="title-container">
+          <img className="title" src="/img/life.svg" alt="life logo" />
+          <div className="title-bottom">
+            <img
+              className="title-bar"
+              src="/img/life-bar.svg"
+              alt="life logo bar"
+            />
+            <div className="play-btn">
+              <PlayButton click={startApp}></PlayButton>
+              <img src="/img/tu-decides.svg" alt="tu decides" />
+            </div>
+          </div>
         </div>
-        <div className="col-md-2 text-center pt-5">
-          <ShareButton click={startApp}></ShareButton>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-md-8"></div>
-        <div className="col-md-4">
-          <PlayButton click={startApp}></PlayButton>
-          {/* <img src="/img/tu-decides.svg" alt="share icon" /> */}
+        <div className="share-btn">
+          <ShareButton className="share-btn"></ShareButton>
         </div>
       </div>
     </div>
