@@ -16,7 +16,7 @@ class App extends Component {
     ],
     currentPage: {
       id: "start-page",
-      type: screenTypes.ceroScreen,
+      type: screenTypes.pathSelectScreen,
       title: "LIFE",
       routes: [],
     },
