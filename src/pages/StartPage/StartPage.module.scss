@@ -2,7 +2,7 @@
   display: flex;
   flex-flow: column;
 
-  .page-container {
+  .pageContainer {
     justify-content: space-around;
     display: flex;
     flex-flow: row;
@@ -10,7 +10,7 @@
     height: 100vh;
   }
 
-  .title-container {
+  .titleContainer {
     display: flex;
     align-self: center;
     flex-flow: column;
@@ -22,21 +22,21 @@
       margin-left: 70px;
       margin-bottom: 40px;
     }
-    .title-bottom {
+    .titleBottom {
       display: flex;
       flex-flow: row;
-      .title-bar {
+      .titleBar {
         width: 425px;
       }
     }
   }
 
-  .share-btn {
+  .shareBtn {
     align-self: flex-start;
     padding: 50px;
   }
 
-  .play-btn {
+  .playBtn {
     padding: 50px;
   }
 }

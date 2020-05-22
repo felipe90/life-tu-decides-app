@@ -1,11 +1,11 @@
 import React from "react";
-import "./PathSelectPage.scss";
+import classes from "./PathSelectPage.module.scss";
 import Radium from "radium";
 import ReactPlayer from "react-player";
 
 const pathSelectPage = (props) => {
   return (
-    <div className="PathSelectPage">
+    <div className={classes.PathSelectPage}>
       <ReactPlayer
         width="100%"
         height="100vh"

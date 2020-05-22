@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import "./App.scss";
 import screenTypes from "./const/screen-types";
 import PagesContainer from "./components/PagesContainer/PagesContainer";
-import Radium from "radium";
 
 class App extends Component {
   state = {
@@ -24,11 +22,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
         <PagesContainer currentPage={this.state.currentPage}></PagesContainer>
       </div>
     );
   }
 }
 
-export default Radium(App);
+export default App;

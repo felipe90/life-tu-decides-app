@@ -20,17 +20,18 @@
 
   &:hover {
     cursor: pointer;
-    .button-icon {
+    .buttonIcon {
       background-color: $electricPink;
     }
   }
 
-  .button-label {
+  .buttonLabel {
     display: inline-block;
     margin-left: 2rem;
   }
 
-  .button-icon {
+  .buttonIcon {
+    @include sh-2;
     position: relative;
     display: inline-block;
     border-radius: 100px;

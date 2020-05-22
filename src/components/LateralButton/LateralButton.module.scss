@@ -1,0 +1,27 @@
+@import "../../index.scss";
+
+.LateralButton {
+  @include sh-2;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 8%;
+  position: fixed;
+  top: 0;
+  color: $white;
+  z-index: 10;
+  opacity: 70%;
+  transition: $linear;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 90%;
+  }
+
+  img {
+    width: 45px;
+  }
+}

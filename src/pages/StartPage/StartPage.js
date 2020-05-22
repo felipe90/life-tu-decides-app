@@ -1,8 +1,7 @@
 import React from "react";
-import "./StartPage.scss";
+import classes from "./StartPage.module.scss";
 import PlayButton from "../../components/PlayButton/PlayButton";
 import ShareButton from "../../components/ShareButton/ShareButton";
-import Radium from "radium";
 
 const startPage = (props) => {
   const startApp = () => {
@@ -10,28 +9,28 @@ const startPage = (props) => {
   };
 
   return (
-    <div className="StartPage">
-      <div className="page-container">
-        <div className="title-container">
-          <img className="title" src="/img/life.svg" alt="life logo" />
-          <div className="title-bottom">
+    <div className={classes.StartPage}>
+      <div className={classes.pageContainer}>
+        <div className={classes.titleContainer}>
+          <img className={classes.title} src="/img/life.svg" alt="life logo" />
+          <div className={classes.titleBottom}>
             <img
-              className="title-bar"
+              className={classes.titleBar}
               src="/img/life-bar.svg"
               alt="life logo bar"
             />
-            <div className="play-btn">
+            <div className={classes.playBtn}>
               <PlayButton click={startApp}></PlayButton>
-              <img src="/img/tu-decides.svg" alt="tu decides" />
+              {/* <img src="/img/tu-decides.svg" alt="tu decides" /> */}
             </div>
           </div>
         </div>
-        <div className="share-btn">
-          <ShareButton className="share-btn"></ShareButton>
+        <div className={classes.shareBtn}>
+          <ShareButton></ShareButton>
         </div>
       </div>
     </div>
   );
 };
 
-export default Radium(startPage);
+export default startPage;

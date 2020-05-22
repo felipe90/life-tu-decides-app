@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Radium from "radium";
-import "./ShareButton.scss";
+import classes from "./ShareButton.module.scss";
 import Dropdown from "react-bootstrap/Dropdown";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
@@ -8,7 +7,7 @@ import Button from "react-bootstrap/Button";
 const shareButton = (props) => {
   const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     <Button
-      className="ShareButton"
+      className={classes.ShareButton}
       onClick={(e) => {
         e.preventDefault();
         onClick(e);
@@ -64,4 +63,4 @@ const shareButton = (props) => {
   );
 };
 
-export default Radium(shareButton);
+export default shareButton;
