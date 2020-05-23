@@ -4,6 +4,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 
+// TODO: fix implementation of shared btn as bootstrap dropdown
 const shareButton = (props) => {
   const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     <Button

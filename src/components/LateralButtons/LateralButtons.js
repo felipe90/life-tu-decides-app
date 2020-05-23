@@ -1,5 +1,5 @@
 import React from "react";
-import screenTypes from "../../const/screen-types";
+import screenTypes from "../../constants/screen-types";
 import { map } from "lodash";
 import LateralButton from "../LateralButton/LateralButton";
 

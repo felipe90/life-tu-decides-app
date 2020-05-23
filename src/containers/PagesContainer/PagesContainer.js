@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import StartPage from "../../pages/StartPage/StartPage";
-import screenTypes from "../../const/screen-types";
+import screenTypes from "../../constants/screen-types";
 
 import LateralButtons from "../../components/LateralButtons/LateralButtons";
 import CircleButton from "../../components/CircleButton/CircleButton";

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import screenTypes from "../../const/screen-types";
+import screenTypes from "../../constants/screen-types";
 import PagesContainer from "../PagesContainer/PagesContainer";
 
 class App extends Component {
