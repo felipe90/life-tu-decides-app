@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "@xstate/react": "^0.8.1",
     "bootstrap": "^4.5.0",
+    "lodash": "^4.17.15",
     "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
     "radium": "^0.26.0",

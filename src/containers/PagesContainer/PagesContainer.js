@@ -3,54 +3,47 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import StartPage from "../../pages/StartPage/StartPage";
 import screenTypes from "../../const/screen-types";
 
-import LateralButton from "../../components/LateralButton/LateralButton";
+import LateralButtons from "../../components/LateralButtons/LateralButtons";
 import CircleButton from "../../components/CircleButton/CircleButton";
 import PathSelectPage from "../../pages/PathSelectPage/PathSelectPage";
 import classes from "./PagesContainer.module.scss";
 
 class PagesContainer extends Component {
-  lateralButtons() {
-    const lateralButtons = [
-      {
+  state = {
+    infoToggle: false,
+    lateralBtnModel: {
+      menuBtn: {
         side: "left",
         iconName: "menu_line",
         bkColorName: "electricBlue",
+        styles: {
+          left: 0,
+        },
         click: (event) => {
           this.onClickMenuButton(event);
         },
       },
-      {
+      questBtn: {
         side: "right",
         iconName: "quest",
         bkColorName: "electricPurple",
+        styles: {
+          right: 0,
+        },
+        toggle: false,
+        innerTemplate: <div>{"(Under Construction)"}</div>,
         click: (event) => {
           this.onClickInfoButton(event);
         },
       },
-    ];
-    if (this.props.currentPage.type !== screenTypes.ceroScreen) {
-      return lateralButtons.map((button) => {
-        return (
-          <LateralButton
-            key={button.iconName}
-            side={button.side}
-            iconName={button.iconName}
-            bkColorName={button.bkColorName}
-            click={button.click}></LateralButton>
-        );
-      });
-    }
-  }
-
-  actionsButtons() {
-    if (this.props.currentPage.type !== screenTypes.ceroScreen) {
-      return (
-        <CircleButton
-          iconName="back"
-          click={this.onClickBackButton}></CircleButton>
-      );
-    }
-  }
+    },
+    backBtnModel: {
+      iconName: "back",
+      click: (event) => {
+        this.onClickBackButton(event);
+      },
+    },
+  };
 
   onClickBackButton = (e) => {
     e.preventDefault();
@@ -64,14 +57,25 @@ class PagesContainer extends Component {
 
   onClickInfoButton = (e) => {
     e.preventDefault();
-    console.log("info");
+    const lateralBtnState = { ...this.state.lateralBtnModel };
+    lateralBtnState.questBtn.toggle = !lateralBtnState.questBtn.toggle;
+    this.setState({ lateralBtnModel: lateralBtnState });
   };
 
   render() {
+    const actionsButtons =
+      this.props.currentPage.type !== screenTypes.ceroScreen ? (
+        <CircleButton
+          iconName={this.state.backBtnModel.iconName}
+          click={this.state.backBtnModel.click}></CircleButton>
+      ) : null;
+
     return (
       <div className={classes.PagesContainer}>
-        {this.actionsButtons()}
-        {this.lateralButtons()}
+        {actionsButtons}
+        <LateralButtons
+          currentPage={this.props.currentPage}
+          model={this.state.lateralBtnModel}></LateralButtons>
         <Router>
           <Switch>
             <Route exact path="/">

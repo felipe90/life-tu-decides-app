@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import screenTypes from "./const/screen-types";
-import PagesContainer from "./components/PagesContainer/PagesContainer";
+import screenTypes from "../../const/screen-types";
+import PagesContainer from "../PagesContainer/PagesContainer";
 
 class App extends Component {
   state = {
@@ -22,9 +22,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <PagesContainer currentPage={this.state.currentPage}></PagesContainer>
-      </div>
+      <PagesContainer currentPage={this.state.currentPage}></PagesContainer>
     );
   }
 }

@@ -4,10 +4,6 @@ import PlayButton from "../../components/PlayButton/PlayButton";
 import ShareButton from "../../components/ShareButton/ShareButton";
 
 const startPage = (props) => {
-  const startApp = () => {
-    console.log(`routing`);
-  };
-
   return (
     <div className={classes.StartPage}>
       <div className={classes.pageContainer}>
@@ -20,7 +16,8 @@ const startPage = (props) => {
               alt="life logo bar"
             />
             <div className={classes.playBtn}>
-              <PlayButton click={startApp}></PlayButton>
+              <PlayButton></PlayButton>
+              {/* TODO: Add 'tudecies' image animation */}
               {/* <img src="/img/tu-decides.svg" alt="tu decides" /> */}
             </div>
           </div>

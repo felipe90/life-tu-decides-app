@@ -5,7 +5,7 @@ import "normalize.css";
 // import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap
 import "./index.scss";
-import App from "./App";
+import App from "./containers/App/App";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
