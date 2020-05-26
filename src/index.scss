@@ -10,6 +10,11 @@ $white: #ffff;
 $linear: all 0.5s 0.1s linear;
 $ease-in: all 0.5s 0.1s ease-out;
 
+// misc
+$circleBtnWidth: 70px;
+$circleBtnHeight: 70px;
+$lateralBtnWidth: 7%;
+
 //TODO: move it to variables.scss
 :export {
   // Colors
