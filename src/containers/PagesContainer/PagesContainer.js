@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, useLocation, useHistory } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import StartPage from "../../pages/StartPage/StartPage";
 import screenTypes from "../../constants/screen-types";
 
@@ -10,7 +10,6 @@ import classes from "./PagesContainer.module.scss";
 import journeyMap from "../../constants/journey-map";
 
 function PagesContainer(props) {
-  let location = useLocation();
   let history = useHistory();
 
   const [lateralBtnModel, setLateralBtnModel] = useState({
@@ -93,7 +92,7 @@ function PagesContainer(props) {
           </div>
         </Route>
         <Route path="*">
-          <h1>Error 404 - Page not founded</h1>
+          <h1 style={{ textAlign: "center" }}>Error 404 - Page not founded</h1>
         </Route>
       </Switch>
     </div>
