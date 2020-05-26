@@ -1,6 +1,5 @@
 import React from "react";
 import classes from "./PathSelectPage.module.scss";
-import Radium from "radium";
 import ReactPlayer from "react-player";
 
 const pathSelectPage = (props) => {
@@ -9,11 +8,11 @@ const pathSelectPage = (props) => {
       <ReactPlayer
         width="100%"
         height="100vh"
-        url="/reference/demo-video.mp4"
+        url={props.pageData.videoUrl}
         controls={true}
       />
     </div>
   );
 };
 
-export default Radium(pathSelectPage);
+export default pathSelectPage;

@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import classes from "./PlayButton.module.scss";
 import { Link } from "react-router-dom";
+import journeyMap from "../../constants/journey-map";
 
 class PlayButton extends Component {
   state = {
     hover: false,
+  };
+
+  linkState = {
+    pathname: "/path-select",
+    state: { ...journeyMap.introductionPage },
   };
 
   onMouseEnterHandler = () => {
@@ -20,7 +26,8 @@ class PlayButton extends Component {
 
   render() {
     return (
-      <Link to="/path-select">
+      // <Link to="/path-select">
+      <Link to={this.linkState}>
         <button
           className={classes.PlayButton}
           onMouseEnter={this.onMouseEnterHandler}

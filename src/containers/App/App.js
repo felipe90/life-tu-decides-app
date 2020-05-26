@@ -1,30 +1,22 @@
-import React, { Component } from "react";
-import screenTypes from "../../constants/screen-types";
+import React, { useState } from "react";
 import PagesContainer from "../PagesContainer/PagesContainer";
+import { BrowserRouter as Router } from "react-router-dom";
+import JourneyMap from "../../constants/journey-map";
 
-class App extends Component {
-  state = {
-    screens: [
-      {
-        id: "start-page",
-        type: screenTypes.ceroScreen,
-        title: "LIFE",
-        routes: [],
-      },
-    ],
-    currentPage: {
-      id: "start-page",
-      type: screenTypes.pathSelectScreen,
-      title: "LIFE",
-      routes: [],
-    },
-  };
+function App() {
+  const [journeyMap] = useState(JourneyMap);
+  const [currentPage, setCurrentPage] = useState(JourneyMap.startPage);
 
-  render() {
-    return (
-      <PagesContainer currentPage={this.state.currentPage}></PagesContainer>
-    );
-  }
+  return (
+    <Router>
+      <PagesContainer
+        journeyMap={journeyMap}
+        currentPage={currentPage}
+        setCurrentPage={(pageModel) => {
+          setCurrentPage(pageModel);
+        }}></PagesContainer>
+    </Router>
+  );
 }
 
 export default App;

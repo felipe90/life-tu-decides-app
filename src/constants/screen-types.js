@@ -1,5 +1,7 @@
 const screenTypes = {
-  ceroScreen: "ceros-screen-route",
+  ceroScreen: "cero-screen",
+  introScreen: "intro-screen",
+  questionScreen: "question-screen",
   pathSelectScreen: "path-select-screen",
 };
 

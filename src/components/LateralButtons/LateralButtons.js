@@ -18,6 +18,8 @@ const lateralButtons = (props) => {
           click={button.click}></LateralButton>
       );
     });
+  } else {
+    return null;
   }
 };
 export default lateralButtons;
