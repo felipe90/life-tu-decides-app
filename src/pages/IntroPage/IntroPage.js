@@ -3,7 +3,7 @@ import classes from "./IntroPage.module.scss";
 import GenericButton from "../../components/GenericButton/GenericButton";
 import ReactPlayer from "react-player";
 
-const introPage = (props) => {
+function IntroPage(props) {
   const button = {
     label: "Continuar",
     styles: {
@@ -18,30 +18,33 @@ const introPage = (props) => {
         width: "25%",
       },
     },
-    click: () => {},
-  };
-
-  const handleEnded = () => {
-    console.log("onEnded");
+    click: () => {
+      props.goNext();
+    },
   };
 
   return (
     <div className={classes.IntroPage}>
-      <GenericButton
-        label={button.label}
-        styles={button.styles}
-        icon={button.icon}
-        color={button.color}
-        click={button.click}></GenericButton>
-      <ReactPlayer
-        width="100%"
-        height="100vh"
-        onEnded={handleEnded}
-        url={props.pageData.videoUrl}
-        controls={true}
-      />
+      {props.player.ended ? (
+        <GenericButton
+          label={button.label}
+          styles={button.styles}
+          icon={button.icon}
+          color={button.color}
+          click={button.click}></GenericButton>
+      ) : (
+        <ReactPlayer
+          width="100%"
+          height="100vh"
+          light={true}
+          onStart={props.onStart}
+          onEnded={props.onEnd}
+          url={props.pageData.videoUrl}
+          controls={true}
+        />
+      )}
     </div>
   );
-};
+}
 
-export default introPage;
+export default IntroPage;

@@ -12,6 +12,8 @@
   background-size: cover;
 
   .pageWrapper {
+    width: 100%;
+    height: 100vh;
     display: flex;
     flex-flow: row;
     justify-content: center;

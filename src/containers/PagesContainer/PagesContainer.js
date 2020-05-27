@@ -49,6 +49,21 @@ function PagesContainer(props) {
     },
   });
 
+  const [playerState, setPlayerState] = useState({
+    started: false,
+    playing: false,
+    controls: true,
+    light: true,
+    volume: 0.8,
+    muted: false,
+    played: 0,
+    loaded: 0,
+    duration: 0,
+    playbackRate: 1.0,
+    loop: false,
+    ended: false,
+  });
+
   useEffect(() =>
     history.listen((location, action) => {
       console.log(action, location.pathname, location.state);
@@ -74,6 +89,20 @@ function PagesContainer(props) {
     setLateralBtnModel(lateralBtnState);
   };
 
+  const goToNextPage = () => {
+    console.log("onGoTonext");
+  };
+
+  const handleStarted = () => {
+    setPlayerState({ ...playerState, ...{ started: true } });
+    console.log("onStar");
+  };
+
+  const handleEnded = () => {
+    setPlayerState({ ...playerState, ...{ ended: true } });
+    console.log("onEnded");
+  };
+
   return (
     <div className={classes.PagesContainer}>
       {props.currentPage.type !== screenTypes.ceroScreen ? (
@@ -95,19 +124,27 @@ function PagesContainer(props) {
         </Route>
         <Route path="/intro">
           <div className={classes.pageWrapper}>
-            <IntroPage pageData={props.journeyMap.introductionPage}></IntroPage>
+            <IntroPage
+              pageData={props.journeyMap.introductionPage}
+              player={playerState}
+              onStart={() => handleStarted()}
+              goNext={() => goToNextPage()}
+              onEnd={() => handleEnded()}></IntroPage>
           </div>
         </Route>
         <Route path="/path-select">
           <div className={classes.pageWrapper}>
             <PathSelectPage
-              pageData={props.journeyMap.introductionPage}></PathSelectPage>
+              pageData={props.journeyMap.introductionPage}
+              goNext={() => goToNextPage()}
+              onEnd={() => handleEnded()}></PathSelectPage>
           </div>
         </Route>
         <Route path="/question">
           <div className={classes.pageWrapper}>
             <QuestionPage
-              pageData={props.journeyMap.introductionPage}></QuestionPage>
+              pageData={props.journeyMap.introductionPage}
+              onEnd={() => handleEnded()}></QuestionPage>
           </div>
         </Route>
         <Route path="*">
