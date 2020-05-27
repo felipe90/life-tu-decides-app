@@ -9,7 +9,7 @@ class PlayButton extends Component {
   };
 
   linkState = {
-    pathname: "/path-select",
+    pathname: "/intro",
     state: { ...journeyMap.introductionPage },
   };
 

@@ -1,9 +1,11 @@
 // Colors
 $electricPink: #cd30d1;
+$electricPinkHover: rgba(205, 48, 209, 0.5);
 $electricPurple: #841abc;
 $darkBlue: #001c58;
 $deepBlue: #003399;
 $electricBlue: #33ffff;
+$electricBlueHover:rgba(51, 255, 255, 0.5);
 $white: #ffff;
 
 // transitions
@@ -19,14 +21,16 @@ $lateralBtnWidth: 7%;
 :export {
   // Colors
   electricPink: $electricPink;
+  electricPinkHover: $electricPinkHover;
   electricPurple: $electricPurple;
   darkBlue: $darkBlue;
   deepBlue: $deepBlue;
   electricBlue: $electricBlue;
+  electricBlueHover: $electricBlueHover;
   white: $white;
   // transitions
   linear: $linear;
-  ease-in: $ease-in;
+  easeIn: $ease-in;
 }
 
 // Fonts
