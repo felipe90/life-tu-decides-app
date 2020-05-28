@@ -19,7 +19,7 @@ function IntroPage(props) {
       },
     },
     click: () => {
-      props.goNext();
+      props.goNext("path-select-page");
     },
   };
 
@@ -36,7 +36,7 @@ function IntroPage(props) {
         <ReactPlayer
           width="100%"
           height="100vh"
-          light={true}
+          light={false}
           onStart={props.onStart}
           onEnded={props.onEnd}
           url={props.pageData.videoUrl}

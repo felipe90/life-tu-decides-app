@@ -12,11 +12,12 @@
   background-size: cover;
 
   .pageWrapper {
-    width: 100%;
+    width: 88%;
     height: 100vh;
     display: flex;
     flex-flow: row;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
   }
 }

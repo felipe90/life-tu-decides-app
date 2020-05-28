@@ -17,22 +17,6 @@ $circleBtnWidth: 70px;
 $circleBtnHeight: 70px;
 $lateralBtnWidth: 7%;
 
-//TODO: move it to variables.scss
-:export {
-  // Colors
-  electricPink: $electricPink;
-  electricPinkHover: $electricPinkHover;
-  electricPurple: $electricPurple;
-  darkBlue: $darkBlue;
-  deepBlue: $deepBlue;
-  electricBlue: $electricBlue;
-  electricBlueHover: $electricBlueHover;
-  white: $white;
-  // transitions
-  linear: $linear;
-  easeIn: $ease-in;
-}
-
 // Fonts
 @font-face {
   font-family: "Conforta";
@@ -80,6 +64,25 @@ $shadow-hover: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
+//TODO: move it to variables.scss
+:export {
+  // Colors
+  electricPink: $electricPink;
+  electricPinkHover: $electricPinkHover;
+  electricPurple: $electricPurple;
+  darkBlue: $darkBlue;
+  deepBlue: $deepBlue;
+  electricBlue: $electricBlue;
+  electricBlueHover: $electricBlueHover;
+  white: $white;
+  // transitions
+  linear: $linear;
+  easeIn: $ease-in;
+  //fonts 
+  fontLgItalic: $font-lg-italic;
+}
+
 
 body {
   width: 100%;

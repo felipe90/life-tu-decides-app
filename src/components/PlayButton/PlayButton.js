@@ -9,8 +9,8 @@ class PlayButton extends Component {
   };
 
   linkState = {
-    pathname: "/intro",
-    state: { ...journeyMap.introductionPage },
+    pathname: "/path-select",
+    state: { ...journeyMap.pathSelectPage },
   };
 
   onMouseEnterHandler = () => {

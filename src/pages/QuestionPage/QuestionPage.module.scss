@@ -1,4 +1,29 @@
-.QuestionPage {
- 
-}
+@import "../../index.scss";
 
+// TODO: Use this styles into template generic page
+.QuestionPage {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  height: 100vh;  
+
+  .questionsContainer {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+
+    spawn {
+      text-align: center;
+      font-size: 4rem;
+      font-family: $font-lg-italic;
+    }
+    .buttonsWrapper {
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-flow: row;
+      justify-content: space-around;
+    }
+  }
+}

@@ -24,8 +24,14 @@ const genericButton = (props) => {
     if (props.icon.align === "left") {
       styles.flexFlow = "row";
     }
+    if (props.icon.align === "up") {
+      styles.flexFlow = "column";
+    }
+    if (props.icon.align === "down") {
+      styles.flexFlow = "column-reverse";
+    }
     iconStyles = { ...iconStyles, ...props.icon.styles };
-    styles.justifyContent = "space-between";
+    styles.justifyContent = "space-around";
   } else {
     styles.justifyContent = "center";
   }

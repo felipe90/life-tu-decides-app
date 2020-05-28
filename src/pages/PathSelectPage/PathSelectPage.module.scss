@@ -1,4 +1,13 @@
 .PathSelectPage {
- 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    .buttonsWrapper {
+        width: 70%;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+    }
 }
 

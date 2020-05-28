@@ -1,21 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route, useHistory, useLocation } from "react-router-dom";
 import StartPage from "../../pages/StartPage/StartPage";
-import screenTypes from "../../constants/screen-types";
 import ProgressBar from "react-bootstrap/ProgressBar";
 
+import classes from "./PagesContainer.module.scss";
+import journeyMap from "../../constants/journey-map";
+import { find } from "lodash";
+
+import screenTypes from "../../constants/screen-types";
 import LateralButtons from "../../components/LateralButtons/LateralButtons";
 import CircleButton from "../../components/CircleButton/CircleButton";
 import IntroPage from "../../pages/IntroPage/IntroPage";
 import PathSelectPage from "../../pages/PathSelectPage/PathSelectPage";
 import QuestionPage from "../../pages/QuestionPage/QuestionPage";
-import classes from "./PagesContainer.module.scss";
-import journeyMap from "../../constants/journey-map";
 
 function PagesContainer(props) {
   let history = useHistory();
+  let location = useLocation();
 
-  const [lateralBtnModel, setLateralBtnModel] = useState({
+  const lateralButtons = {
     menuBtn: {
       side: "left",
       iconName: "menu_line",
@@ -40,16 +43,16 @@ function PagesContainer(props) {
         onClickInfoButton(event);
       },
     },
-  });
+  };
 
-  const [backBtnModel] = useState({
+  const backButton = {
     iconName: "back",
     click: (event) => {
       onClickBackButton(event);
     },
-  });
+  };
 
-  const [playerState, setPlayerState] = useState({
+  const player = {
     started: false,
     playing: false,
     controls: true,
@@ -62,19 +65,25 @@ function PagesContainer(props) {
     playbackRate: 1.0,
     loop: false,
     ended: false,
-  });
+  };
 
-  useEffect(() =>
+  const [lateralBtnModel, setLateralBtnModel] = useState(lateralButtons);
+  const [backBtnModel] = useState(backButton);
+  const [playerState, setPlayerState] = useState(player);
+
+  useEffect(() => {
+    props.setCurrentPage(location.state);
     history.listen((location, action) => {
       console.log(action, location.pathname, location.state);
+      _resetStates();
       props.setCurrentPage(location.state);
-    })
-  );
+    });
+  });
 
   const onClickBackButton = (e) => {
     e.preventDefault();
-    props.setCurrentPage(journeyMap.startPage);
-    history.push("/", journeyMap.startPage);
+    console.log(props.currentPage);
+    _changeLocationPage(props.currentPage.id);
   };
 
   const onClickMenuButton = (e) => {
@@ -89,8 +98,9 @@ function PagesContainer(props) {
     setLateralBtnModel(lateralBtnState);
   };
 
-  const goToNextPage = () => {
-    console.log("onGoTonext");
+  const goToNextPage = (page) => {
+    _changeLocationPage(page);
+    console.log("onGoToNext");
   };
 
   const handleStarted = () => {
@@ -101,6 +111,16 @@ function PagesContainer(props) {
   const handleEnded = () => {
     setPlayerState({ ...playerState, ...{ ended: true } });
     console.log("onEnded");
+  };
+
+  const _resetStates = () => {
+    setLateralBtnModel(lateralButtons);
+    setPlayerState(player);
+  };
+
+  const _changeLocationPage = (pageId) => {
+    const page = find(journeyMap, (item) => item.id === pageId);
+    history.push(page.path, page);
   };
 
   return (
@@ -119,6 +139,7 @@ function PagesContainer(props) {
         currentPage={props.currentPage}
         model={lateralBtnModel}></LateralButtons>
       <Switch>
+        {/* TODO: Create routes dynamically and create generic page component */}
         <Route exact path="/">
           <StartPage></StartPage>
         </Route>
@@ -126,24 +147,32 @@ function PagesContainer(props) {
           <div className={classes.pageWrapper}>
             <IntroPage
               pageData={props.journeyMap.introductionPage}
+              currentPage={props.currentPage}
               player={playerState}
               onStart={() => handleStarted()}
-              goNext={() => goToNextPage()}
+              goNext={(id) => goToNextPage(id)}
               onEnd={() => handleEnded()}></IntroPage>
           </div>
         </Route>
         <Route path="/path-select">
           <div className={classes.pageWrapper}>
             <PathSelectPage
-              pageData={props.journeyMap.introductionPage}
-              goNext={() => goToNextPage()}
+              pageData={props.journeyMap.pathSelectPage}
+              currentPage={props.currentPage}
+              player={playerState}
+              onStart={() => handleStarted()}
+              goNext={(id) => goToNextPage(id)}
               onEnd={() => handleEnded()}></PathSelectPage>
           </div>
         </Route>
         <Route path="/question">
           <div className={classes.pageWrapper}>
             <QuestionPage
-              pageData={props.journeyMap.introductionPage}
+              pageData={props.journeyMap.path1_1}
+              currentPage={props.currentPage}
+              player={playerState}
+              onStart={() => handleStarted()}
+              goNext={(id) => goToNextPage(id)}
               onEnd={() => handleEnded()}></QuestionPage>
           </div>
         </Route>
