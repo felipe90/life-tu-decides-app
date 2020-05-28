@@ -72,11 +72,13 @@ function PagesContainer(props) {
   const [playerState, setPlayerState] = useState(player);
 
   useEffect(() => {
-    props.setCurrentPage(location.state);
+    if (location.state) {
+      props.setCurrentPage(location.state);
+    }
     history.listen((location, action) => {
       console.log(action, location.pathname, location.state);
       _resetStates();
-      props.setCurrentPage(location.state);
+      // props.setCurrentPage(location.state);
     });
   });
 
@@ -122,6 +124,9 @@ function PagesContainer(props) {
     const page = find(journeyMap, (item) => item.id === pageId);
     history.push(page.path, page);
   };
+
+  // debugger;
+  console.log(props.currentPage);
 
   return (
     <div className={classes.PagesContainer}>
